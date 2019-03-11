@@ -1,7 +1,7 @@
 #!/bin/bash
 folderPath=$1
 program=$2
-arguments="$3"
+arguments=${@:3}
 value=0
 compilation="FAIL"
 memoryLeak="FAIL"
@@ -31,6 +31,7 @@ else
 	(( value = 7 ))
 fi
 
+echo $0 $folderPath $program $arguments
 #print resualts
 echo "Compilation	Memory Leak	Thread Race"
 echo "   $compilation	           $memoryLeak		   $threadRace"
